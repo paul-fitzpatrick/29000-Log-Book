@@ -5,7 +5,7 @@ from django.contrib import messages
 from .forms import ReportForm
 
 
-# render add review page
+# render add report page
 def add_report(request):
     form = ReportForm(request.POST)
 
@@ -28,5 +28,4 @@ def add_report(request):
         'form': form, 'add_report': True,
     }
     return render(request, 'add_report.html', context)
-
 
