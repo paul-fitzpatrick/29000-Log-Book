@@ -1,15 +1,16 @@
 {% extends "base.html" %}
 {% load static %}
+{% load crispy_forms_tags%}
 
 {% block content %}
-
-<div class="overlay"></div>
-<div class="container-fluid">
-    <div class="text-align">
-        <h1>form</h1>
-
-      
-
-    
-
+<div>
+    <div>
+        <form class="all-forms" enctype="multipart/form-data" method="post" style="margin-top: 1.3em;">
+            <h3>Add A report Here <i class="fa fa-arrow-down"></i></h3>
+            {{ form | crispy }}
+            {% csrf_token %}
+            <button type="submit" class="btn btn-signup btn-lg">Submit Report</button>
+        </form>
+    </div>
+</div>
 {% endblock %}

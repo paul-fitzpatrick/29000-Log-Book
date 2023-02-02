@@ -6,5 +6,6 @@ from django.conf.urls.static import static
 
 
 urlpatterns = [
+    path('open_reports.html', views.reports_list, name='reports_list'),
     path('add_report.html', views.add_report, name='add_report'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

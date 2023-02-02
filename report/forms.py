@@ -10,4 +10,10 @@ class ReportForm(forms.ModelForm):
                   'driver_email',
                   'unit',
                   'location_at_time_of_fault',
+                  'time_of_fault',
                   'details_of_defect')
+        
+        widgets = {
+            
+            'time_of_fault': forms.TimeInput(attrs={'type': 'time'})
+        }

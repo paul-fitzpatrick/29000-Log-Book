@@ -5,12 +5,21 @@ from django.contrib import messages
 from .forms import ReportForm
 
 
+def reports_list(request):
+    reports = Logbook_report.objects.filter(report_approved=True)
+    context = {
+        'reports': reports
+    }
+
+    return render(request, 'open_reports.html', context)
+
+
 # render add report page
 def add_report(request):
     form = ReportForm(request.POST)
 
     if request.method == "POST":
-        form = ReporForm(request.POST)
+        form = ReportForm(request.POST)
         if form.is_valid():
             # form.instance.customer_email = request.user.email
             # form.instance.name = request.user.username
@@ -22,7 +31,7 @@ def add_report(request):
         else:
             form = ReportForm()
 
-        return redirect('add_report.html')  # directed here after adding report
+        return redirect('reports.html')  # directed here after adding report
     form = ReportForm()
     context = {
         'form': form, 'add_report': True,

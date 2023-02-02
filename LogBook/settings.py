@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+    'crispy_forms',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -65,6 +66,8 @@ SITE_ID = 1
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 ROOT_URLCONF = 'LogBook.urls'
+
+CRISPY_TEMPLAT4E_PACK = 'bootstrap4'
 
 TEMPLATES = [
     {
