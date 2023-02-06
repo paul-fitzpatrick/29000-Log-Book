@@ -11,18 +11,16 @@
     </div> -->
 
     <div>
-        {% for report in reports %}
+        
     <div class="text-align">
         
-        <a href="{% url 'report_detail' report.id %}">
-            {{ report.Grade }} reported unit number {{ report.unit}} - click to view details
-        </a>
         
-                
-            
-    
+            <p>
+                {{ report.Grade }} reported unit number {{ report.unit }} failed at {{ location_at_time_of_fault }} at time of {{ time_of_fault }}
+            </p>
+        
     </div>
-    {% endfor %}
+  
 </div>
 
 {% endblock %}

@@ -1,5 +1,5 @@
 body {
-    background: radial-gradient(circle, rgba(240,244,243,1) 0%, rgba(14,255,0,1) 100%);                                                                 /*makes image stay in center of page*/
+    background: radial-gradient(circle, rgba(240,244,243,1) 0%, rgba(14,255,0,1) 100%);    /*makes image stay in center of page*/
     padding:0; 
     margin:0; 
     height:100%; 
@@ -18,4 +18,13 @@ footer{
 
 .text-align {
     text-align: center;
+}
+
+.all-forms {
+    background-color: #31313B;
+    width: 80%;
+    margin: auto; 
+    padding: 2%;
+    border-radius:8px;
+    color: antiquewhite;
 }

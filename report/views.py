@@ -5,13 +5,25 @@ from django.contrib import messages
 from .forms import ReportForm
 
 
+# render reports
 def reports_list(request):
+    """ A View to return all approved/open reports """
     reports = Logbook_report.objects.filter(report_approved=True)
     context = {
         'reports': reports
     }
 
     return render(request, 'open_reports.html', context)
+
+
+def report_detail(request, logbook_report_id):
+    """ A view to return the report details page """
+    report = get_object_or_404(Logbook_report, pk=logbook_report_id)
+    context = {
+        'report': report,
+    }
+
+    return render(request, 'report_detail.html', context)
 
 
 # render add report page
@@ -31,10 +43,10 @@ def add_report(request):
         else:
             form = ReportForm()
 
-        return redirect('reports.html')  # directed here after adding report
+        return redirect('open_reports.html')  # directed here after adding report
     form = ReportForm()
     context = {
-        'form': form, 'add_report': True,
+        'form': form, 'report_added': True,
     }
     return render(request, 'add_report.html', context)
 
