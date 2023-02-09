@@ -33,6 +33,7 @@ footer{
 
 #id_location_at_time_of_fault.textarea {
     width: 100%;
+    height: 40px;
 }
 
 #id_details_of_defect.textarea {
@@ -81,5 +82,9 @@ h5{
 div {
     margin: 0px;
     margin: 0;
+    padding: 0;
+}
+
+.back-btn {
     padding: 0;
 }

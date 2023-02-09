@@ -35,7 +35,6 @@
                 <td >{{ report.driver_name }}</td>
             </tr>
 
-
         </tbody>
 
     </table>
@@ -50,5 +49,11 @@
         {{ report.details_of_defect }}
     </p>
 </div>
+
+<div class="back-btn text-align">
+    <a class="btn btn-signup bg-light" href="{% url 'reports_list' %}">Return to Currently Open Issues (reports) page</a>
+</div>
+
+
 
 {% endblock %}

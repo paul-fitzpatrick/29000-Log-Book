@@ -5,10 +5,10 @@ from django.contrib import messages
 from .forms import ReportForm
 
 
-# render reports
+# render approved reports
 def reports_list(request):
-    """ A View to return all approved/open reports """
-    reports = Logbook_report.objects.filter(report_approved=True)
+    """ A View to return all read/work order reports """
+    reports = Logbook_report.objects.filter(report_read=True).filter(work_order_created=True)
     context = {
         'reports': reports
     }
@@ -16,6 +16,18 @@ def reports_list(request):
     return render(request, 'open_reports.html', context)
 
 
+# render closed reports 
+def closed_reports_list(request):
+    """ A View to return all closed work order reports """
+    reports = Logbook_report.objects.filter(work_order_closed=True)
+    context = {
+        'reports': reports
+    }
+
+    return render(request, 'closed_reports.html', context)
+
+
+# render report detail page
 def report_detail(request, logbook_report_id):
     """ A view to return the report details page """
     report = get_object_or_404(Logbook_report, pk=logbook_report_id)

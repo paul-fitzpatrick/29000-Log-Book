@@ -39,8 +39,15 @@
             <a class="nav-link" href="{% url 'reports_list' %}">Currently Open Issues (reports)</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Closed Issues (closed-reports)</a>
+            <a class="nav-link" href="{% url 'closed_reports_list' %}">Closed Issues (closed-reports)</a>
           </li>
+          {% if request.user.is_superuser %}
+          <li class="nav-item">
+            <a class="nav-link" href="https://8000-paulfitzpat-29000logboo-woxrfhynj1a.ws-eu86.gitpod.io/admin/">admin</a>
+          </li>
+          {% endif %}
+
+     
 
                                <!-- Dropdown for selecting 29's or 22's  -->
           <!-- <li class="nav-item dropdown">
