@@ -4,23 +4,51 @@
 
 {% block content %}
 
+<div class="no-margin">
+
+    <table class="text-align table table-striped table-dark">
+
+        <tbody>
+
+            <tr>
+                <th scope="row">Unit</th>
+                <td>{{ report.unit }}</td>
+            </tr>
+
+            <tr>
+                <th scope="row">Time of fault</th>
+                <td>{{ report.time_of_fault }}</td>
+            </tr>
+
+            <tr>
+                <th scope="row">Date of fault</th>
+                <td>{{ report.date_of_fault }}</td>
+            </tr>
+
+            <tr>
+                <th scope="row">Location at time of fault</th>
+                <td>{{ report.location_at_time_of_fault }}</td>
+            </tr>
+
+            <tr>
+                <th scope="row">Reported by</th>
+                <td >{{ report.driver_name }}</td>
+            </tr>
+
+
+        </tbody>
+
+    </table>
+
+
+</div>
+
 <div>
-    <!-- <div>
-        <h2>Current issues under investigation</h2>
+    <h5 class="bg-dark detail-heading text-align text-white">The following issue was reported:</h5>
 
-    </div> -->
-
-    <div>
-        
-    <div class="text-align">
-        
-        
-            <p>
-                {{ report.Grade }} reported unit number {{ report.unit }} failed at {{ location_at_time_of_fault }} at time of {{ time_of_fault }}
-            </p>
-        
-    </div>
-  
+    <p class="text-white">
+        {{ report.details_of_defect }}
+    </p>
 </div>
 
 {% endblock %}

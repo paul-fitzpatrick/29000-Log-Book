@@ -6,11 +6,11 @@ from django.contrib.auth.models import User
 class Logbook_report(models.Model):
     Grade = models.CharField(max_length=25, default='Driver')
     driver_name = models.CharField(max_length=50)
-    driver_email = models.EmailField(blank=True, default='optional for feeback')  # blank =  make optional
-    unit = models.IntegerField(default=29)
+    driver_email = models.EmailField(blank=True)  # blank =  make optional
+    unit = models.IntegerField(default=29, max_length=5)
     location_at_time_of_fault = models.TextField(max_length=60)
     time_of_fault = models.TimeField(null=True, blank=True)
-    date_of_fault = models.TextField(default='DD-MM-YYYY')
+    date_of_fault = models.TextField()
     details_of_defect = models.TextField()
     # admin
     report_read = models.BooleanField(default=False)

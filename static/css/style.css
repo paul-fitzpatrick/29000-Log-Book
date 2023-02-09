@@ -1,5 +1,6 @@
 body {
-    background: radial-gradient(circle, rgba(240,244,243,1) 0%, rgba(14,255,0,1) 100%);    /*makes image stay in center of page*/
+    background: lightgreen url("/media/29000\ _image.jpg") no-repeat center center;    /*makes image stay in center of page*/
+    background-size: auto 100%;
     padding:0; 
     margin:0; 
     height:100%; 
@@ -20,11 +21,65 @@ footer{
     text-align: center;
 }
 
+/*----------------form--------------------*/
+
 .all-forms {
-    background-color: #31313B;
-    width: 80%;
+    background-color: lightgreen;
+    width: 90%;
     margin: auto; 
     padding: 2%;
     border-radius:8px;
-    color: antiquewhite;
+}
+
+#id_location_at_time_of_fault.textarea {
+    width: 100%;
+}
+
+#id_details_of_defect.textarea {
+    width: 100%;
+}
+
+label {
+    margin-top: 15px;
+    margin-bottom: 1px;
+}
+
+input, textarea {
+    border-radius: 5px
+}
+
+.btn-signup {
+    background-color:antiquewhite;
+    color:black; 
+    margin: 2%;    
+}
+
+/*--------table----------*/
+
+
+
+/*------report detail-----------*/
+
+.detail-heading {
+    width:100%;
+    padding: 4%;
+}
+
+.detail-heading {
+    font-size: large;
+}
+
+p {
+    padding: 4%;
+    background-color: #3d5c5c;
+}
+
+h5{
+  margin: 0;
+}
+
+div {
+    margin: 0px;
+    margin: 0;
+    padding: 0;
 }

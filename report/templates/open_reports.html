@@ -4,25 +4,46 @@
 
 {% block content %}
 
-<div>
-    <!-- <div>
-        <h2>Current issues under investigation</h2>
+<div class="table-align">
+    
 
-    </div> -->
-
-    <div>
-        {% for report in reports %}
-    <div class="text-align">
+    
+       
+    <!-- <div class="text-align"> -->
         
-        <a href="{% url 'report_detail' report.id %}">
-            {{ report.Grade }} reported unit number {{ report.unit}} - click to view details
-        </a>
+    
+
+        <table class="text-align table table-striped table-dark">
+            <thead>
+              <tr>
+                <th scope="col">Unit</th>
+                <th scope="col">Date Reported</th>
+                <th scope="col">View Details</th>
+              </tr>
+            </thead>
+             {% for report in reports %}
+            <tbody>
+              <tr>
+                <!-- <th scope="row">1</th> -->
+                <td>{{ report.unit }}</td>
+                <td>{{ report.date_of_fault }}</td>
+                <td><a href="{% url 'report_detail' report.id %}">click to view details</a></td>
+              </tr>
+
+              <!----if no reports have been approved-->
+              {% empty %}
+                <h3 class="text-align local-band-text">There are no reports to display at the moment.</h3>
+   
+              {% endfor %}
+            
+            </tbody>
+          </table>
         
                 
             
     
-    </div>
-    {% endfor %}
+    <!-- </div> -->
+    
 </div>
 
 {% endblock %}
