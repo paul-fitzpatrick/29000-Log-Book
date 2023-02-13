@@ -5,8 +5,8 @@ from .models import Logbook_report
 
 @admin.register(Logbook_report)
 class Logbook_reportAdmin(admin.ModelAdmin):
-    search_fields = ('unit', )
-    actions = ['approve_report']
+    search_fields = ('unit',)
+    actions = ['approve_report',]
     list_display = ('unit', 'time_of_fault', 'report_read', 'work_order_created', 'work_order_closed', 'driver_responded_to')
 
     def approve_report(self, request, queryset):

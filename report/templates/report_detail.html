@@ -35,6 +35,28 @@
                 <td >{{ report.driver_name }}</td>
             </tr>
 
+            <tr>
+                <th scope="row">Status:</th>
+                <td > 
+
+                    {% if report.report_read and report.work_order_closed and report.work_order_created %}  
+                             Work Order closed 
+
+                      {% elif report.work_order_created %}  
+                      Work Order created
+                       
+                    {% else %}
+                    Issue has been seen by dsm
+            
+                    
+                   
+                      {% endif %}
+
+                    
+                     </td>
+            
+            </tr>
+
         </tbody>
 
     </table>

@@ -16,9 +16,14 @@ class Logbook_report(models.Model):
     report_read = models.BooleanField(default=False)
     work_order_created = models.BooleanField(default=False)
     driver_responded_to = models.BooleanField(default=False)
-    report_approved = models.BooleanField(default=False)
+    # report_approved = models.BooleanField(default=False)
     work_order_closed = models.BooleanField(default=False)
     # broken seal info to be added
     
+    class Meta:         
+        ordering = ['date_of_fault']
+
     def __str__(self):
         return self.driver_name
+
+    

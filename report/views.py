@@ -8,7 +8,7 @@ from .forms import ReportForm
 # render approved reports
 def reports_list(request):
     """ A View to return all read/work order reports """
-    reports = Logbook_report.objects.filter(report_read=True).filter(work_order_created=True)
+    reports = Logbook_report.objects.filter(report_read=True)
     context = {
         'reports': reports
     }
