@@ -63,6 +63,8 @@ MIDDLEWARE = [
 
 SITE_ID = 1
 
+MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
+
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 ROOT_URLCONF = 'LogBook.urls'

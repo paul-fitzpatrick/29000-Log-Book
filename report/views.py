@@ -49,8 +49,10 @@ def add_report(request):
             # form.instance.name = request.user.username
             report = form.save(commit=False)
             report.save()        
-            messages.success(request, 'Thank you for your Log Book entry, \
-            if you provided an email, \
+            messages.success(request, 'Thank you for using the Log Book app. \
+            Once Drogheda DSM read your Issue, \
+            It will appear on the log book entry page. \
+            If you provided an email, \
             DSM in Drogheda will email you when your issue has been dealt with.')
         else:
             form = ReportForm()

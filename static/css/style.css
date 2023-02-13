@@ -88,3 +88,9 @@ div {
 .back-btn {
     padding: 0;
 }
+
+.alert {
+    background-color: lightgreen;
+    width: 50%;
+    
+}
