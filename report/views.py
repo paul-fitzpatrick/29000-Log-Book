@@ -69,7 +69,6 @@ def add_report(request):
     return render(request, 'add_report.html', context)
 
 
-
 def reports_list(request):
     """ A View to return all read/work order reports and search queries """
     reports = Logbook_report.objects.filter(report_read=True)
@@ -87,8 +86,8 @@ def reports_list(request):
             query = request.GET['q']
             if not query:
                 messages.error(request,
-                               ("You didn't enter any search criteria!"))
-                return redirect(reverse('reports'))
+                               ("You didn't enter car number!"))
+                return redirect('/')
 
             queries = Q(unit__icontains=query) 
             reports = reports.filter(queries)

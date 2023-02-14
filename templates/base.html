@@ -64,14 +64,16 @@
           
         </ul>
         <form method="GET" action="{% url 'reports_list' %}" class="form-inline my-2 my-lg-0">
-          <input class="form-control border border-black rounded-0" type="text" name="q" placeholder="Search by unit number">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          <input class="form-control border border-black rounded-0" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+          type = "number"
+          maxlength = "5" name="q" placeholder="Search by unit number">
+          <button class="bg-light btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
       </div>
     </nav>
 
     {% for message in messages %}
-      <div class="alert bg-light {{ message.tags }} alert-dismissible fade show msg-box" id="msg" role="alert">
+      <div class="alert bg-light {{ message.tags }} alert-dismissible fade show msg-box mt-5" id="msg" role="alert">
         {{ message | safe }}
       </div>
       {% endfor %}
