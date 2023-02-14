@@ -18,6 +18,7 @@ class Logbook_report(models.Model):
     driver_responded_to = models.BooleanField(default=False)
     # report_approved = models.BooleanField(default=False)
     work_order_closed = models.BooleanField(default=False)
+    # already reported boolean?
     # broken seal info to be added
     
     class Meta:         

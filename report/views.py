@@ -3,23 +3,27 @@ from django.views import generic, View
 from .models import Logbook_report
 from django.contrib import messages
 from .forms import ReportForm
+from django.contrib.auth.decorators import login_required
+from django.db.models import Q
+from django.db.models.functions import Lower
 
 
 # render approved reports
-def reports_list(request):
-    """ A View to return all read/work order reports """
-    reports = Logbook_report.objects.filter(report_read=True)
-    context = {
-        'reports': reports
-    }
+# def reports_list(request):
+#     """ A View to return all read/work order reports """
+#     reports = Logbook_report.objects.filter(report_read=True)
+#     context = {
+#         'reports': reports
+#     }
 
-    return render(request, 'open_reports.html', context)
+#     return render(request, 'open_reports.html', context)
 
 
 # render closed reports 
 def closed_reports_list(request):
     """ A View to return all closed work order reports """
     reports = Logbook_report.objects.filter(work_order_closed=True)
+    
     context = {
         'reports': reports
     }
@@ -64,3 +68,37 @@ def add_report(request):
     }
     return render(request, 'add_report.html', context)
 
+
+
+def reports_list(request):
+    """ A View to return all read/work order reports and search queries """
+    reports = Logbook_report.objects.filter(report_read=True)
+    query = None
+    categories = None
+    sort = None
+    direction = None
+    if request.GET:
+        if 'sort' in request.GET:
+            sortkey = request.GET['sort']
+            sort = sortkey    
+            reports = reports.order_by(sortkey)
+
+        if 'q' in request.GET:
+            query = request.GET['q']
+            if not query:
+                messages.error(request,
+                               ("You didn't enter any search criteria!"))
+                return redirect(reverse('reports'))
+
+            queries = Q(unit__icontains=query) 
+            reports = reports.filter(queries)
+    current_sorting = f'{sort}_{direction}'
+
+    context = {
+        'reports': reports,
+        'search_term': query,
+        # 'current_categories': categories,
+        'current_sorting': current_sorting,
+    }
+
+    return render(request, 'open_reports.html', context)

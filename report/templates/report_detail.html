@@ -4,7 +4,7 @@
 
 {% block content %}
 
-<div class="no-margin">
+<div class="no-margin bg-dark">
 
     <table class="text-align table table-striped table-dark">
 
@@ -32,36 +32,26 @@
 
             <tr>
                 <th scope="row">Reported by</th>
-                <td >{{ report.driver_name }}</td>
+                <td>{{ report.driver_name }}</td>
             </tr>
 
             <tr>
                 <th scope="row">Status:</th>
-                <td > 
+                <td>
 
-                    {% if report.report_read and report.work_order_closed and report.work_order_created %}  
-                             Work Order closed 
+                    {% if report.report_read and report.work_order_closed and report.work_order_created %}
+                    Work Order closed
 
-                      {% elif report.work_order_created %}  
-                      Work Order created
-                       
+                    {% elif report.work_order_created %}
+                    Work Order created
+
                     {% else %}
                     Issue has been seen by dsm
-            
-                    
-                   
-                      {% endif %}
-
-                    
-                     </td>
-            
+                    {% endif %}
+                </td>
             </tr>
-
         </tbody>
-
     </table>
-
-
 </div>
 
 <div>
@@ -73,7 +63,7 @@
 </div>
 
 <div class="back-btn text-align">
-    <a class="btn btn-signup bg-light" href="{% url 'reports_list' %}">Return to Currently Open Issues (reports) page</a>
+    <a class="btn btn-signup bg-light" href="{% url 'reports_list' %}">Return to Log Book entries page</a>
 </div>
 
 
