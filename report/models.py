@@ -18,6 +18,8 @@ class Logbook_report(models.Model):
     driver_responded_to = models.BooleanField(default=False)
     # report_approved = models.BooleanField(default=False)
     work_order_closed = models.BooleanField(default=False)
+    work_order_number = models.IntegerField(null=True)
+    Depot_feedback = models.TextField(max_length=300, default='Copy SAP longtext here')
     # already reported boolean?
     # broken seal info to be added
     

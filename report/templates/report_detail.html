@@ -60,6 +60,12 @@
     <p class="text-white">
         {{ report.details_of_defect }}
     </p>
+
+    {% if report.report_read and report.work_order_closed and report.work_order_created %}
+    <p class="text-white">
+        Feedback from depot- repair info: {{ report.Depot_feedback }}
+    </p>
+    {% endif %}
 </div>
 
 <div class="back-btn text-align">

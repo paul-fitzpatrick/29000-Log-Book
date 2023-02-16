@@ -3,18 +3,18 @@
 <!DOCTYPE html>
 <html>
 
-  <head>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
-      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
-      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <title>29000 Log Book</title>
+<head>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <title>29000 Log Book</title>
 
-    <!-- Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+  <!-- Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
     integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
     integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
@@ -23,34 +23,34 @@
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
   </script>
 
-  </head>
+</head>
 
-  <body>
-  
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="/">29000 LogBook</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-    
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="{% url 'reports_list' %}">Log Book Entries</a>
-          </li>
-          <!-- <li class="nav-item">
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/">29000 LogBook</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'reports_list' %}">Log Book Entries</a>
+        </li>
+        <!-- <li class="nav-item">
             <a class="nav-link" href="{% url 'closed_reports_list' %}">Closed Issues (closed-reports)</a>
           </li> -->
-          {% if request.user.is_superuser %}
-          <li class="nav-item">
-            <a class="nav-link" href="https://8000-paulfitzpat-29000logboo-woxrfhynj1a.ws-eu86.gitpod.io/admin/">admin</a>
-          </li>
-          {% endif %}
+        <!--  if request.user.is_superuser  -->
+        <li class="nav-item">
+          <a class="nav-link" href="https://8000-paulfitzpat-29000logboo-woxrfhynj1a.ws-eu87.gitpod.io/admin/">admin</a>
+        </li>
+        <!--  endif  -->
 
-     
 
-                               <!-- Dropdown for selecting 29's or 22's  -->
-          <!-- <li class="nav-item dropdown">
+        <!-- Dropdown for selecting 29's or 22's  -->
+        <!-- <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Dropdown
             </a>
@@ -61,35 +61,34 @@
               <a class="dropdown-item" href="#">Something else here</a>
             </div>
           </li> -->
-          
-        </ul>
-        <form method="GET" action="{% url 'reports_list' %}" class="form-inline my-2 my-lg-0">
-          <input class="form-control border border-black rounded-0" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-          type = "number"
-          maxlength = "5" name="q" placeholder="Search by unit number">
-          <button class="bg-light btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
-      </div>
-    </nav>
+      </ul>
+      <form method="GET" action="{% url 'reports_list' %}" class="form-inline my-2 my-lg-0">
+        <input class="form-control border border-black rounded-0"
+          oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+          type="number" maxlength="5" name="q" placeholder="Search by unit number">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
 
-    {% for message in messages %}
-      <div class="alert bg-light {{ message.tags }} alert-dismissible fade show msg-box mt-5" id="msg" role="alert">
-        {{ message | safe }}
-      </div>
-      {% endfor %}
+  {% for message in messages %}
+  <div class="alert bg-light {{ message.tags }} alert-dismissible fade show msg-box mt-5" id="msg" role="alert">
+    {{ message | safe }}
+  </div>
+  {% endfor %}
 
-    {% block content %}
-    {% endblock %}
-
+  {% block content %}
+  {% endblock %}
 
 
 
-    <!-- footer -->
-          
-          <!-- <footer class="py-2 page-footer font-small darken-3 bg-light footer mt-auto ">
+
+  <!-- footer -->
+
+  <!-- <footer class="py-2 page-footer font-small darken-3 bg-light footer mt-auto ">
             <div class="text-center"><a href="https://www.privacypolicygenerator.info/live.php?token=Q4CTII7C8K1zLvFMn0VNVsyz9IW4FLED" target="_blank">Privacy Policy</a></div>
           </footer> -->
-          <script src="{% static 'js/script.js' %}"></script>
-  </body>
+  <script src="{% static 'js/script.js' %}"></script>
+</body>
 
 </html>

@@ -40,6 +40,14 @@ footer{
     width: 100%;
 }
 
+/* #id_Depot_feedback.textarea {
+    display: none;
+}
+
+#div_id_Depot_feedback.control-group {
+    display: none;
+} */
+
 label {
     margin-top: 15px;
     margin-bottom: 1px;
