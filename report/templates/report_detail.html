@@ -4,34 +4,34 @@
 
 {% block content %}
 
-<div class="no-margin bg-dark">
+<div class="no-margin bg-light">
 
-    <table class="text-align table table-striped table-dark">
+    <table class="text-align table table-striped table-light">
 
         <tbody>
 
             <tr>
-                <th scope="row">Unit</th>
+                <th scope="row">Unit:</th>
                 <td>{{ report.unit }}</td>
             </tr>
 
             <tr>
-                <th scope="row">Time of fault</th>
+                <th scope="row">Time of fault:</th>
                 <td>{{ report.time_of_fault }}</td>
             </tr>
 
             <tr>
-                <th scope="row">Date of fault</th>
+                <th scope="row">Date of fault:</th>
                 <td>{{ report.date_of_fault }}</td>
             </tr>
 
             <tr>
-                <th scope="row">Location at time of fault</th>
+                <th scope="row">Location at time of fault:</th>
                 <td>{{ report.location_at_time_of_fault }}</td>
             </tr>
 
             <tr>
-                <th scope="row">Reported by</th>
+                <th scope="row">Reported by:</th>
                 <td>{{ report.driver_name }}</td>
             </tr>
 
@@ -50,20 +50,29 @@
                     {% endif %}
                 </td>
             </tr>
+
+
+            {% if report.report_read and report.work_order_closed and report.work_order_created %}
+            <tr>
+                <th scope="row">Work order number</th>
+                <td>{{ report.work_order_number }}</td>
+            </tr>
+            {% endif %}
         </tbody>
     </table>
 </div>
 
-<div>
-    <h5 class="bg-dark detail-heading text-align text-white">The following issue was reported:</h5>
-
-    <p class="text-white">
+<div class="bg-light p-2">
+    <p class="p-2">
+        <strong>The following issue was reported:</strong>
+        <br>
         {{ report.details_of_defect }}
     </p>
 
     {% if report.report_read and report.work_order_closed and report.work_order_created %}
-    <p class="text-white">
-        Feedback from depot- repair info: {{ report.Depot_feedback }}
+    <p class="p-2">
+       <strong>Feedback from depot/repair info:</strong> 
+       <br>{{ report.Depot_feedback }}
     </p>
     {% endif %}
 </div>
