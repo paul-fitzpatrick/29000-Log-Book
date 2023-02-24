@@ -23,7 +23,7 @@ class Logbook_report(models.Model):
     # already reported boolean?
     # broken seal info to be added
     
-    class Meta:         
+    class Meta:        
         ordering = ['date_of_fault']
 
     def __str__(self):
