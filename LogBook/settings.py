@@ -72,7 +72,7 @@ SITE_ID = 1
 BASE_DIR = Path(__file__).resolve().parent.parent
 TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 
-# ALLOWED_HOSTS = ['two9000-logbook.onrender.com', 'localhost']
+ALLOWED_HOSTS = ['two9000-logbook.onrender.com', 'localhost'] ###############?????????????????
 # Add Render.com URL to allowed hosts
 
 # Add Render.com URL to allowed hosts
