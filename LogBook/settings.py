@@ -22,6 +22,14 @@ if os.path.isfile('env.py'):
 BASE_DIR = Path(__file__).resolve().parent.parent
 TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 
+MESSAGE_TAGS = {
+        messages.DEBUG: 'alert-info',
+        messages.INFO: 'alert-info',
+        messages.SUCCESS: 'alert-success',
+        messages.WARNING: 'alert-warning',
+        messages.ERROR: 'alert-danger',
+    }
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
@@ -44,10 +52,10 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'django.contrib.sites',
     'django.contrib.staticfiles',
     'cloudinary_storage',
     'cloudinary',
-    'django.contrib.sites',
     'crispy_forms',
     'allauth',
     'allauth.account',
@@ -70,9 +78,6 @@ MIDDLEWARE = [
 ]
 
 SITE_ID = 1
-
-BASE_DIR = Path(__file__).resolve().parent.parent
-TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 
 ALLOWED_HOSTS = ['two9000-logbook.onrender.com', 'localhost'] ###############?????????????????
 # Add Render.com URL to allowed hosts
@@ -132,18 +137,27 @@ WSGI_APPLICATION = 'LogBook.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+if 'DATABASE_URL' in os.environ:
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
+
 
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 DATABASES = {
     'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
 }
+
+LOGIN_REDIRECT_URL = '/'   
+LOGOUT_REDIRECT_URL = '/'
 
 
 # Password validation
@@ -189,7 +203,7 @@ USE_TZ = True
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
-CLOUDINARY_STORAGE = {'CLOUD_NAME': 'dyd68dlge', 'API_KEY': '637295913234162', 'API_SECRET': 'AohANt4h_rS1D6nbscAysc91fus'}
+CLOUDINARY_STORAGE = {'CLOUD_NAME': 'paulfitz85', 'API_KEY': '665873779262841', 'API_SECRET': 'LzkIF362Rb1Dqnu6t91ukLxwzwY'}
 
 STATIC_URL = '/static/'
 STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage' 
