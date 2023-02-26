@@ -187,8 +187,7 @@ USE_TZ = True
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
-CLOUDINARY_STORAGE = {'CLOUD_NAME': 'dyd68dlge', 'API_KEY': '637295913234162', 'API_SECRET': 'AohANt4h_rS1D6nbscAysc91fus',
-}
+CLOUDINARY_STORAGE = {'CLOUD_NAME': 'dyd68dlge', 'API_KEY': '637295913234162', 'API_SECRET': 'AohANt4h_rS1D6nbscAysc91fus'}
 
 STATIC_URL = '/static/'
 STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage' 
