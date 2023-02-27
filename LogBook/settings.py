@@ -38,6 +38,12 @@ MESSAGE_TAGS = {
 # SECURITY WARNING: keep the secret key used in production secret!
 # SECRET_KEY = 'django-insecure-a!4&7noccj53@auuq03gns#wudygla-5i5g5lwlxa7p406e*3v'-----------??
 
+# SECURITY WARNING: don't run with debug turned on in production!
+# DEBUG = True  #--------------dev
+DEBUG = False
+
+
+
 
 # Application definition
 
@@ -74,7 +80,7 @@ MIDDLEWARE = [
 
 SITE_ID = 1
 
-ALLOWED_HOSTS = ['two9000-logbook.onrender.com', 'localhost']
+ALLOWED_HOSTS = ['two9000-logbook.onrender.com', 'localhost'] ###############?????????????????
 # Add Render.com URL to allowed hosts
 
 # Add Render.com URL to allowed hosts
@@ -85,7 +91,7 @@ if RENDER_EXTERNAL_HOSTNAME:
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
 ACCOUNT_EMAIL_VERIFICATION = 'none'
-X_FRAME_OPTIONS = 'SAMEORIGIN'
+
 ROOT_URLCONF = 'LogBook.urls'
 
 CRISPY_TEMPLAT4E_PACK = 'bootstrap4'
@@ -188,38 +194,29 @@ USE_L10N = True
 USE_TZ = True
 
 
-# SECURITY WARNING: don't run with debug turned on in production!
-#DEBUG = True  #--------------dev
-DEBUG = False
-
-
-######################### development ##################################
-
-# # Static files (CSS, JavaScript, Images)
-# # https://docs.djangoproject.com/en/3.2/howto/static-files/
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/3.2/howto/static-files/
 # STATIC_URL = '/static/'
 # STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
 # MEDIA_URL = '/media/'             
 # MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-# # Default primary key field type
-# # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
+# Default primary key field type
+# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
+CLOUDINARY_STORAGE = {'CLOUD_NAME': 'paulfitz85', 'API_KEY': '665873779262841', 'API_SECRET': 'LzkIF362Rb1Dqnu6t91ukLxwzwY'}
 
-######################### production ##################################
-
-
-CLOUDINARY_STORAGE = {'CLOUD_NAME': 'dyd68dlge', 'API_KEY': '637295913234162', 'API_SECRET': 'AohANt4h_rS1D6nbscAysc91fus'}
-
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
-
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_URL = '/static/'
-STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
+STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage' 
+
 STATICFILES_DIR = [os.path.join(BASE_DIR, 'static')]
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  
+
 
 MEDIA_URL = '/media/'
-
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
