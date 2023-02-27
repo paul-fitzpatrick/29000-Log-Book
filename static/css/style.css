@@ -1,5 +1,7 @@
 body {
-    background: lightgreen url("/media/29000\ _image.jpg") no-repeat center center;    /*makes image stay in center of page*/
+    /*background: lightgreen url("/media/29000\ _image.jpg") no-repeat center center;    /*makes image stay in center of page*/
+    background: lightgreen url("https://res.cloudinary.com/dyd68dlge/image/upload/v1677358953/logbook/29000__image_errmub.jpg") no-repeat center center;
+    
     background-size: auto 100%;
     padding:0; 
     margin:0; 
