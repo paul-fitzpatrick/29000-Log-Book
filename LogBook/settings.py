@@ -51,7 +51,7 @@ DEBUG = False
 
 INSTALLED_APPS = [
     "whitenoise.runserver_nostatic",
-    # "django.contrib.staticfiles",
+    "django.contrib.staticfiles",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -85,8 +85,8 @@ MIDDLEWARE = [
 
 SITE_ID = 1
 
-ALLOWED_HOSTS = ['two9000-logbook.onrender.com', 'localhost'] ###############?????????????????
-# Add Render.com URL to allowed hosts
+ALLOWED_HOSTS = ['two9000-logbook.onrender.com', 'localhost'] 
+
 
 # Add Render.com URL to allowed hosts
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
@@ -202,7 +202,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 STATIC_URL = '/static/'
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+#STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
 MEDIA_URL = '/media/'             
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
