@@ -11,10 +11,12 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 import dj_database_url
 from pathlib import Path
+import cloudinary
 from cloudinary.uploader import upload
 from cloudinary.utils import cloudinary_url
 from django.contrib.messages import constants as messages
 import os
+
 
 if os.path.isfile('env.py'):
     import env
@@ -48,13 +50,14 @@ DEBUG = False
 # Application definition
 
 INSTALLED_APPS = [
+    "whitenoise.runserver_nostatic",
+    # "django.contrib.staticfiles",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.sites',
-    'django.contrib.staticfiles',
     'cloudinary_storage',
     'cloudinary',
     'crispy_forms',
@@ -63,6 +66,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'report',
     'home',
+    
 ]
 
 LOGIN_REDIRECT_URL = '/'   
@@ -70,6 +74,7 @@ LOGOUT_REDIRECT_URL = '/'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -196,25 +201,25 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
-# STATIC_URL = '/static/'
-# STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+STATIC_URL = '/static/'
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
-# MEDIA_URL = '/media/'             
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'             
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
-CLOUDINARY_STORAGE = {'CLOUD_NAME': 'dyd68dlge', 'API_KEY': '637295913234162', 'API_SECRET': 'AohANt4h_rS1D6nbscAysc91fus'}
+# CLOUDINARY_STORAGE = {'CLOUD_NAME': 'dyd68dlge', 'API_KEY': '637295913234162', 'API_SECRET': 'AohANt4h_rS1D6nbscAysc91fus'}
 
-STATIC_URL = '/static/'
-STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage' 
+# STATIC_URL = '/static/'
+# STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage' 
 
-STATICFILES_DIR = [os.path.join(BASE_DIR, 'static')]
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  
+# STATICFILES_DIR = [os.path.join(BASE_DIR, 'static')]
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')  
 
 
-MEDIA_URL = '/media/'
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+# MEDIA_URL = '/media/'
+# DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
