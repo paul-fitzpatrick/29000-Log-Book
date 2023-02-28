@@ -10,7 +10,7 @@
               <tr>
                 <th scope="col">Unit</th>
                 <th scope="col">Date Reported</th>
-                <th scope="col">View Details</th>
+                <th scope="col">Report Details</th>
               </tr>
             </thead>
              {% for report in reports %}
@@ -19,7 +19,7 @@
                 <!-- <th scope="row">1</th> -->
                 <td>{{ report.unit }}</td>
                 <td>{{ report.date_of_fault }}</td>
-                <td><a href="{% url 'report_detail' report.id %}">View details</a></td>
+                <td><a href="{% url 'report_detail' report.id %}">View</a></td>
               </tr>
 
               <!----if no reports have been approved-->

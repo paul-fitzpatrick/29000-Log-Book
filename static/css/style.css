@@ -104,3 +104,13 @@ div {
     width: 50%;
     
 }
+
+/*-------------media queries----------*/
+
+
+
+    @media (min-width: 950px) {
+        .all-forms{
+            width: 70%;
+        }
+    }

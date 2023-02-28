@@ -4,7 +4,8 @@
 <html>
 
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-
+  scalable=yes">
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -40,13 +41,38 @@
         <li class="nav-item active">
           <a class="nav-link" href="{% url 'reports_list' %}">Log Book Entries</a>
         </li>
-        <!-- <li class="nav-item">
-            <a class="nav-link" href="{% url 'closed_reports_list' %}">Closed Issues (closed-reports)</a>
-          </li> -->
+
+
+
         <!--  if request.user.is_superuser  -->
-        <li class="nav-item">
-          <a class="nav-link" href="https://two9000-logbook.onrender.com/admin">admin</a>
+        {% if request.user.is_authenticated %}
+        {% if request.user.is_superuser %}
+      
+        <li class="nav-link">
+          <a href="https://logbook29000.onrender.com/admin" target="_blank">Admin Panel</a>
         </li>
+
+          <li>
+            <a class="nav-link" href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+          </li>
+
+          <li>
+            <span class="nav-link float-right"><i>Logged in as:</i> <strong>{{ user }}</strong> </span>
+            </li>
+  
+        {% endif %}
+
+        {% else %}
+        <!--if not registered=display 'Register and 'login'-->
+        <!-- <li>
+                <a class="nav-link" href="{% url 'account_signup' %}" >Register</a>
+              </li> -->
+        <li>
+          <a class="nav-link" href="{% url 'account_login' %}">Admin Login</a>
+        </li>
+
+        {% endif %}
+        
         <!--  endif  -->
 
 
