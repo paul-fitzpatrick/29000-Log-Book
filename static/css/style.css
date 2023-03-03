@@ -1,3 +1,7 @@
+
+  @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap');
+
+
 body {
     /*background: lightgreen url("/media/29000\ _image.jpg") no-repeat center center;    /*makes image stay in center of page*/
     background: lightgreen url("https://res.cloudinary.com/dyd68dlge/image/upload/v1677358953/logbook/29000__image_errmub.jpg") no-repeat center center;
@@ -11,6 +15,7 @@ body {
     display: flex;
     flex-direction: column;
     margin: 0;
+    /* font-family: Raleway; */
       }
 
 footer{
@@ -32,6 +37,15 @@ footer{
     padding: 2%;
     border-radius:8px;
 }
+
+.sign-forms {
+    background-color: lightgreen;
+    width: 90%;
+    margin: auto; 
+    padding: 2%;
+    border-radius:8px;
+}
+
 
 #id_location_at_time_of_fault.textarea {
     width: 100%;
@@ -105,12 +119,22 @@ div {
     
 }
 
+
 /*-------------media queries----------*/
 
 
 
     @media (min-width: 950px) {
         .all-forms{
-            width: 70%;
+            width: 65%;
         }
     }
+
+/*     
+    @media (max-width: 950px) {
+        .thisdiv{
+            width: 50%;
+        }
+    } */
+
+   

@@ -76,18 +76,24 @@ def reports_list(request):
     categories = None
     sort = None
     direction = None
+
     if request.GET:
         if 'sort' in request.GET:
             sortkey = request.GET['sort']
             sort = sortkey    
             reports = reports.order_by(sortkey)
-
+        
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
                 messages.error(request,
                                ("You didn't enter car number!"))
                 return redirect('/')
+
+        # if logbook_report.unit not in request.GET:
+        #     query = request.GET['q']
+        #     messages.error(request, ("You  number!"))
+        #     return redirect('/')
 
             queries = Q(unit__icontains=query) 
             reports = reports.filter(queries)
